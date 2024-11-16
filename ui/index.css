@@ -12,7 +12,7 @@ body {
 
 header {
     width: 100%;
-    background: #007bff;
+    background: linear-gradient(90deg, #ff5722, #ff9800);
     color: white;
     padding: 20px 0;
     text-align: center;
@@ -25,6 +25,44 @@ header h1 {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1.5px;
+}
+
+.metrics-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+}
+
+.metric {
+    flex: 1 1 30%;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #ff5722;
+    border-radius: 8px;
+    background: #fffaf0;
+}
+
+.metric h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #ff5722;
+    font-weight: bold;
+}
+
+.metric span {
+    display: block;
+    font-size: 16px;
+    color: #333;
+    margin-top: 5px;
 }
 
 .input-container {
@@ -51,11 +89,11 @@ textarea {
 }
 
 textarea:focus {
-    border-color: #007bff;
+    border-color: #ff5722;
 }
 
 button {
-    background-color: #007bff;
+    background-color: #ff5722;
     color: white;
     font-size: 16px;
     padding: 12px 25px;
@@ -67,7 +105,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #e64a19;
     transform: translateY(-2px);
 }
 
@@ -85,7 +123,7 @@ button:active {
 }
 
 .option {
-    background: #ffffff;
+    background: linear-gradient(135deg, #ffffff, #f4f4f4);
     border-radius: 15px;
     width: 320px;
     padding: 20px;
@@ -93,6 +131,7 @@ button:active {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     overflow: hidden;
+    border-top: 5px solid #ff5722;
 }
 
 .option:hover {
@@ -108,8 +147,7 @@ button:active {
 .label .icon {
     font-size: 50px;
     margin-bottom: 10px;
-    color: #007bff;
-    animation: pop 0.5s ease;
+    color: #ff5722;
 }
 
 .label .main {
@@ -117,26 +155,32 @@ button:active {
     font-size: 22px;
     color: #333;
     margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
 }
 
 .info {
     font-size: 15px;
     color: #555;
     line-height: 1.6;
-    text-align: justify;
+    text-align: left;
 }
 
 .info strong {
-    color: #007bff;
+    color: #ff5722;
+    font-weight: bold;
 }
 
-@keyframes pop {
-    0% {
-        transform: scale(0.9);
-        opacity: 0.5;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+.info p {
+    margin: 10px 0;
+}
+
+.info ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.info ul li {
+    color: #333;
+    margin: 5px 0;
 }
