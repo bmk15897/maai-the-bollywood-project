@@ -48,6 +48,7 @@ def chat():
     print(f"Received message: {user_input} for thread ID: {thread_id}")
 
     modified_input = (
+        "Always use the same language as my input. Keep the keys of the json english."
         "Give JSON format for the storyline. If a previous storyline exists, "
         "then update it, else create a story. Do not give anything apart from the JSON. "
         f"Details - {user_input}"
@@ -60,7 +61,7 @@ def chat():
 
     # Run the Assistant
     run = openai_client.beta.threads.runs.create(
-        thread_id=thread_id, assistant_id="asst_MEhdn4y0KCRsBmSnQgGQvw1t"
+        thread_id=thread_id, assistant_id="asst_2IEK7CP3nvoXUTPDSgZ32LTZ"
     )
 
     while True:
@@ -76,19 +77,19 @@ def chat():
     messages = openai_client.beta.threads.messages.list(thread_id=thread_id)
     response = messages.data[0].content[0].text.value
 
-    # Prepare log entry
-    log_entry = {
-        "timestamp": datetime.utcnow(),
-        "user_input": user_input,
-        "assistant_response": response,
-    }
+    # # Prepare log entry
+    # log_entry = {
+    #     "timestamp": datetime.utcnow(),
+    #     "user_input": user_input,
+    #     "assistant_response": response,
+    # }
 
-    # Update or create the story document
-    stories_collection.update_one(
-        {"thread_id": thread_id},
-        {"$push": {"logs": log_entry}, "$setOnInsert": {"thread_id": thread_id}},
-        upsert=True
-    )
+    # # Update or create the story document
+    # stories_collection.update_one(
+    #     {"thread_id": thread_id},
+    #     {"$push": {"logs": log_entry}, "$setOnInsert": {"thread_id": thread_id}},
+    #     upsert=True
+    # )
 
     print(f"Assistant response: {response}")
     return jsonify({"response": response})
